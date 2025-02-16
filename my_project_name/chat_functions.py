@@ -54,7 +54,7 @@ async def send_text_to_room(
     }
 
     if markdown_convert:
-        content["formatted_body"] = markdown(message)
+        content["formatted_body"] = markdown(message, extensions=["fenced_code"])
 
     if reply_to_event_id:
         content["m.relates_to"] = {"m.in_reply_to": {"event_id": reply_to_event_id}}
